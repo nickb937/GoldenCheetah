@@ -521,12 +521,12 @@ int LibUsb::write(uint8_t *buf, int bytes)
 
     int rc;
     if (OperatingSystem == WINDOWS) {
-        rc = usb_interrupt_write(device, writeEndpoint, (const char *)buf, bytes, 1000);
+        rc = usb_interrupt_write(device, writeEndpoint, (char *)buf, bytes, 1000);
     } else {
         // we use a non-interrupted write on Linux/Mac since the interrupt
         // write block size is incorrectly implemented in the version of
         // libusb we build with. It is no less efficient.
-        rc = usb_bulk_write(device, writeEndpoint, (const char *)buf, bytes, 125);
+        rc = usb_bulk_write(device, writeEndpoint, (char *)buf, bytes, 125);
     }
 
     if (rc < 0)
