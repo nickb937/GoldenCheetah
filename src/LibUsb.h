@@ -31,6 +31,7 @@
 #elif defined GC_HAVE_LIBUSB
 #include <usb.h> // for the constants etc
 #include <errno.h>
+#include <stdint.h>
 const int LIBUSB_ERROR_IO = -EIO;
 const int LIBUSB_ERROR_TIMEOUT = -ETIMEDOUT;
 const int LIBUSB_ERROR_PIPE = -EPIPE;
